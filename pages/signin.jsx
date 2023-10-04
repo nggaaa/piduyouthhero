@@ -9,10 +9,9 @@ export default function SignIn() {
       <div className="w-full">
         <h1 className="font-bold text-2xl text-primary">Login</h1>
         <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod eum,
-          nemo sit molestiae dolor consequuntur, ducimus distinctio fugiat
-          corrupti, nulla error commodi ea rerum eligendi perferendis quae
-          quaerat ab consectetur.
+          Selamat datang di aplikasi Pidu Youth Hero! Aplikasi ini akan
+          membantumu dalam menghadapi segala gangguan psikologi. Terima kasih
+          telah memilih kami sebagai teman digital kamu. Selamat menjelajahi!
         </p>
         <Button onClick={() => signIn("google")}>Let&lsquo;s Go</Button>
       </div>
@@ -22,12 +21,7 @@ export default function SignIn() {
 
 export async function getServerSideProps(context) {
   const session = await getServerSession(context.req, context.res, authOptions);
-
-  // If the user is already logged in, redirect.
-  // Note: Make sure not to redirect to the same page
-  // To avoid an infinite loop!
   if (session) {
-    // console.log("Logged In");
     return { redirect: { destination: "/app" } };
   }
 
